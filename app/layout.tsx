@@ -1,25 +1,19 @@
 import type { Metadata } from 'next';
+import { DM_Sans, Fraunces } from 'next/font/google';
 import './globals.css';
 
+const display = Fraunces({ subsets: ['latin'], variable: '--font-display', weight: ['600', '800'] });
+const body = DM_Sans({ subsets: ['latin'], variable: '--font-body' });
+
 export const metadata: Metadata = {
-  title: "Laoka — Planifiez vos repas malgaches",
-  description: "Application Android gratuite pour planifier vos laoka malgaches. Planning semaine, liste de courses, roue spin et notifications.",
-  keywords: "laoka, malgache, madagascar, planning repas, android app",
-  openGraph: {
-    title: "Laoka — Planifiez vos repas malgaches",
-    description: "Planifiez vos laoka malgaches pour toute la semaine.",
-    type: "website",
-  },
+  title: 'Laoka — Planifiez vos repas malgaches',
+  description:
+    'Application Android gratuite : planning de la semaine, liste de courses, roue aléatoire et rappels pour vos laoka.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#ec7f13" />
-        <link rel="icon" href="/icon.png" />
-      </head>
+    <html lang="fr" className={`${display.variable} ${body.variable}`}>
       <body>{children}</body>
     </html>
   );
