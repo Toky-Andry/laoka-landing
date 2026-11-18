@@ -12,3 +12,42 @@ body { @apply bg-cream font-sans text-ink antialiased; }
   .btn-brand { @apply btn bg-brand text-white shadow-lg shadow-brand/30 hover:-translate-y-0.5 hover:bg-brand-dark; }
   .btn-ghost { @apply btn border border-ink/15 bg-white hover:border-brand hover:text-brand; }
 }
+
+@keyframes roll-in { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes rail-in { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.roll-in { animation: roll-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) backwards; }
+.rail-in { animation: rail-in 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) backwards; }
+.fade-in { animation: fade-in 0.3s ease backwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .roll-in, .rail-in, .fade-in { animation: none; }
+}
+
+/* Écran large : toute l’échelle en rem rétrécit d’environ 10 % */
+@media (min-width: 768px) {
+  html { font-size: 90%; }
+}
+
+/* Semaine qui se remplit (section finale) */
+@keyframes pop-in { from { opacity: 0; transform: translateY(14px) scale(0.96); } to { opacity: 1; transform: none; } }
+.week-item { opacity: 0; }
+.in .week-item { animation: pop-in 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .week-item { opacity: 1; }
+  .in .week-item { animation: none; }
+}
+
+/* Page merci : vapeur du bol et barre de préparation */
+@keyframes steam { 0% { opacity: 0; transform: translateY(8px); } 30% { opacity: 0.9; } 100% { opacity: 0; transform: translateY(-26px); } }
+@keyframes fill-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.steam { animation: steam 2.6s ease-in-out infinite; }
+.bar-fill { transform-origin: left; animation: fill-bar 1.2s linear forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .steam { animation: none; opacity: 0.6; }
+  .bar-fill { animation: none; }
+}

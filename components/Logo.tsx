@@ -1,13 +1,18 @@
+// Même logo que l’icône de l’app : « La », un bol de soupe à la place du o, « ka. »
 export default function Logo({ light = false }: { light?: boolean }) {
   return (
-    <a href="#" className="flex items-center gap-2.5">
-      <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand">
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 12h18a9 9 0 0 1-18 0Z" />
-          <path d="M8 8c0-1.5 1-1.5 1-3M12 8c0-1.5 1-1.5 1-3M16 8c0-1.5 1-1.5 1-3" />
-        </svg>
-      </span>
-      <span className={`font-display text-xl font-extrabold ${light ? 'text-white' : 'text-ink'}`}>Laoka</span>
+    <a
+      href="#"
+      aria-label="Laoka"
+      className={`flex items-center font-display text-[1.6rem] font-extrabold leading-none tracking-tight ${light ? 'text-white' : 'text-ink'}`}
+    >
+      La
+      <svg viewBox="0 0 36 36" aria-hidden className="mx-px h-[0.95em] w-[0.95em] translate-y-[0.06em]" fill="none">
+        <path d="M10 12c0-2.5 2-2.5 2-5.5M18 12c0-2.5 2-2.5 2-5.5M26 12c0-2.5 2-2.5 2-5.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M3 18h30a15 15 0 0 1-30 0Z" fill="#ec7f13" />
+        <ellipse cx="18" cy="18" rx="15" ry="3" fill="#c4620a" />
+      </svg>
+      ka<span className="text-brand">.</span>
     </a>
   );
 }
