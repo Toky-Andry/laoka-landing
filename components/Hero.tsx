@@ -4,9 +4,9 @@ import DishStage from './DishStage';
 
 export default function Hero() {
   return (
-    <section className="relative -mt-[72px] overflow-hidden pt-[72px]">
+    <section className="relative -mt-16 flex overflow-hidden pt-16 md:min-h-[100svh] md:items-center">
       <div className="absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full bg-brand/15 blur-3xl" />
-      <div className="container-x relative grid items-center gap-14 py-14 md:grid-cols-2 md:py-20">
+      <div className="container-x relative grid w-full items-center gap-10 py-12 md:grid-cols-2 md:gap-14 md:py-[clamp(1.5rem,5vh,4rem)]">
         <div>
           <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
             Quel <span className="text-brand">laoka</span> ce soir ?
