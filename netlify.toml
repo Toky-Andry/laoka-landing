@@ -4,3 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Fichiers de Next.js : leur nom change à chaque build, donc cache d’un an.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Photos des plats : cache d’une semaine.
+[[headers]]
+  for = "/laoka/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

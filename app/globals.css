@@ -65,3 +65,11 @@ body { @apply bg-cream font-sans text-ink antialiased; }
   .stamp { opacity: 1; }
   .in .stamp { animation: none; }
 }
+
+/* Tuiles d’ouverture : 100 % CSS, sans attendre le JavaScript */
+@keyframes tile-out { to { visibility: hidden; } }
+.tile-out { animation: tile-out 1ms linear forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tile-out { animation-delay: 0s !important; }
+}
