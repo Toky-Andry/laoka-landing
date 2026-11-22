@@ -23,6 +23,7 @@ export default function Features() {
           Tout pour organiser vos repas
         </h2>
         <p className="mt-4 max-w-xs text-ink/65">Sept outils dans une seule app, qui marche aussi sans connexion.</p>
+        <div data-dock className="mt-10 hidden aspect-square w-52 md:block" />
       </div>
 
       <ul ref={ref} className={`group/list ${seen ? 'in' : ''}`}>

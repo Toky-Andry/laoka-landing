@@ -1,10 +1,15 @@
 import { Download, ShieldCheck } from 'lucide-react';
 import { APK_URL, APP } from '@/lib/config';
+import type { CSSProperties } from 'react';
+import { DISHES } from '@/lib/dishes';
 import DishStage from './DishStage';
 
 export default function Hero() {
   return (
-    <section className="relative -mt-16 flex overflow-hidden pt-16 md:min-h-[100svh] md:items-center">
+    <section
+      className="relative -mt-16 flex overflow-hidden pt-16 md:min-h-[100svh] md:items-center"
+      style={{ '--flav': DISHES[0].tint, background: 'var(--flav)' } as CSSProperties}
+    >
       <div className="absolute -right-40 -top-40 h-[560px] w-[560px] bg-[radial-gradient(circle,rgba(236,127,19,0.16),transparent_68%)]" />
       <div className="container-x relative grid w-full items-center gap-10 py-12 md:grid-cols-2 md:gap-14 md:py-[clamp(1.5rem,5vh,4rem)]">
         <div>

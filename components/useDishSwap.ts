@@ -31,6 +31,24 @@ function fly(stage: HTMLElement, from: HTMLElement, to: HTMLElement, src: string
   ).finished.then(() => el.remove());
 }
 
+// Un disque de la couleur du plat grandit depuis l’assiette, puis devient le fond du hero.
+function wash(plate: HTMLElement, tint: string) {
+  const sec = plate.closest('section');
+  if (!sec) return;
+  const s = sec.getBoundingClientRect();
+  const p = plate.getBoundingClientRect();
+  const x = p.left + p.width / 2 - s.left;
+  const y = p.top + p.height / 2 - s.top;
+  const r = Math.hypot(Math.max(x, s.width - x), Math.max(y, s.height - y)) * 1.05;
+  const el = document.createElement('div');
+  el.style.cssText = `position:absolute;inset:0;background:${tint};clip-path:circle(0px at ${x}px ${y}px)`;
+  sec.insertBefore(el, sec.firstChild);
+  el.animate(
+    { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
+    { duration: 700, delay: 120, easing: 'cubic-bezier(.25,.75,.2,1)', fill: 'both' },
+  ).finished.then(() => { sec.style.setProperty('--flav', tint); el.remove(); });
+}
+
 export function useDishSwap() {
   const [active, setActive] = useState(0); // plat sur l’assiette, rail, points
   const [shown, setShown] = useState(0); // titre affiché
@@ -54,9 +72,12 @@ export function useDishSwap() {
     if (reduced()) {
       pa.style.opacity = '0'; pt.style.opacity = '1';
       cur.current = t; setActive(t); setShown(t);
+      plateBox.current.closest('section')?.style.setProperty('--flav', DISHES[t].tint);
+      window.dispatchEvent(new CustomEvent('dish', { detail: t }));
       return;
     }
     busy.current = true;
+    wash(plateBox.current, DISHES[t].tint);
     pa.style.zIndex = '1'; pt.style.zIndex = '2';
     const fade = pt.animate({ opacity: [0, 1] }, { duration: 760, delay: 420, easing: 'cubic-bezier(.45,0,.25,1)', fill: 'both' });
     fade.finished.then(() => {
@@ -69,13 +90,13 @@ export function useDishSwap() {
     const from = rail.current[t] ?? rail.current[(a + 1) % N] ?? plateBox.current;
     fly(stage.current, from, plateBox.current, DISHES[t].src);
     setTimeout(() => setShown(t), 350);
-    setTimeout(() => { cur.current = t; setActive(t); }, 600);
+    setTimeout(() => { cur.current = t; setActive(t); window.dispatchEvent(new CustomEvent('dish', { detail: t })); }, 600);
   }, []);
 
   useEffect(() => {
     if (reduced()) return;
     const id = setInterval(() => {
-      if (!paused.current && !busy.current && !document.hidden && Date.now() >= nextAt.current) swap((cur.current + 1) % N);
+      if (!paused.current && !busy.current && !document.hidden && window.scrollY < innerHeight * 0.4 && Date.now() >= nextAt.current) swap((cur.current + 1) % N);
     }, 300);
     return () => clearInterval(id);
   }, [swap]);

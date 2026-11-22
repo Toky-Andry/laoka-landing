@@ -5,12 +5,14 @@ import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 import Steps from '@/components/Steps';
+import PlateTraveller from '@/components/PlateTraveller';
 import TileReveal from '@/components/TileReveal';
 
 export default function Home() {
   return (
     <>
       <TileReveal />
+      <PlateTraveller />
       <Navbar />
       <main>
         <Hero />
