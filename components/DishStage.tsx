@@ -11,7 +11,7 @@ export default function DishStage() {
   const next = [1, 2].map((o) => (s.active + o) % DISHES.length);
 
   return (
-    <div ref={s.stage} {...s.bind} className="relative mx-auto flex w-full max-w-[420px] touch-pan-y select-none flex-col items-center">
+    <div ref={s.stage} {...s.bind} className="relative mx-auto flex w-full max-w-[420px] md:ml-auto md:mr-0 touch-pan-y select-none flex-col items-center">
       <div ref={s.plateBox} style={{ width: 'clamp(180px, 34vh, 300px)', height: 'clamp(180px, 34vh, 300px)' }}
         className="relative rounded-full bg-white shadow-2xl shadow-brand/25 ring-1 ring-ink/5">
         <div className="absolute inset-[6%] rounded-full ring-1 ring-ink/10" />
