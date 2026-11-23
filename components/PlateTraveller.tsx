@@ -63,10 +63,10 @@ export default function PlateTraveller() {
     <div
       ref={el}
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-40 rounded-full bg-white p-[11%] opacity-0 shadow-2xl shadow-brand/25 ring-1 ring-ink/5"
+      className="pointer-events-none fixed left-0 top-0 z-40 rounded-full bg-white opacity-0 shadow-2xl shadow-brand/25 ring-1 ring-ink/5"
       style={{ willChange: 'transform, width, height' }}
     >
-      <img src={DISHES[dish].src} alt="" className="h-full w-full rounded-full object-cover" />
+      <img src={DISHES[dish].src} alt="" className="absolute inset-[11%] h-[78%] w-[78%] rounded-full object-cover" />
     </div>
   );
 }

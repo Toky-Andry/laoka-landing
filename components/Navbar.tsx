@@ -29,9 +29,9 @@ export default function Navbar() {
     >
       {/* 3 colonnes : logo à gauche, liens exactement au centre, bouton calé à droite */}
       <div className="container-x grid h-16 grid-cols-[1fr_auto_1fr] items-center">
-        <div className="flex justify-start"><Logo /></div>
+        <div className="col-start-1 flex justify-start"><Logo /></div>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="col-start-2 hidden items-center gap-9 md:flex">
           {links.map(([label, href]) => (
             <a key={href} href={href} className="group relative py-1 text-[15px] font-medium text-ink/75 transition hover:text-ink">
               {label}
@@ -40,7 +40,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center justify-end gap-2">
+        <div className="col-start-3 flex items-center justify-end gap-2">
           <a
             href={APK_URL}
             className="hidden items-center gap-2 rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand sm:inline-flex"

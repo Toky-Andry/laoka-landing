@@ -11,15 +11,15 @@ export default function Hero() {
       style={{ '--flav': DISHES[0].tint, background: 'var(--flav)' } as CSSProperties}
     >
       <div className="absolute -right-40 -top-40 h-[560px] w-[560px] bg-[radial-gradient(circle,rgba(236,127,19,0.16),transparent_68%)]" />
-      <div className="container-x relative grid w-full items-center gap-10 py-12 md:grid-cols-2 md:gap-14 md:py-[clamp(1.5rem,5vh,4rem)]">
+      <div className="container-x relative grid w-full items-center gap-8 py-8 md:grid-cols-2 md:gap-14 md:py-[clamp(1.5rem,5vh,4rem)]">
         <div>
-          <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+          <h1 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
             Quel <span className="text-brand">laoka</span> ce soir ?
           </h1>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/70">
+          <p className="mt-4 max-w-md text-base leading-relaxed md:mt-5 md:text-lg text-ink/70">
             Planifiez vos repas de la semaine, générez votre liste de courses et laissez la roue décider quand l’inspiration manque.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap md:mt-8 items-center gap-3">
             <a href={APK_URL} className="btn-brand"><Download size={18} /> Télécharger l’APK</a>
             <a href="#features" className="btn-ghost">Découvrir</a>
           </div>
