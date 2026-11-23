@@ -11,8 +11,13 @@ export default function Steps() {
   return (
     <section id="install" className="bg-ink py-20 text-white md:py-28">
       <div className="container-x">
-        <p className="eyebrow">Installation</p>
-        <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">Prêt en trois étapes</h2>
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <p className="eyebrow">Installation</p>
+            <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">Prêt en trois étapes</h2>
+          </div>
+          <div data-dock className="hidden aspect-square w-40 md:block" />
+        </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {steps.map(({ icon: Icon, title, text }, i) => (
             <div key={title} className="rounded-3xl border border-white/10 bg-white/5 p-7">

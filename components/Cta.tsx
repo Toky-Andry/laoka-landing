@@ -42,6 +42,7 @@ export default function Cta() {
           <p className="mt-4 max-w-sm text-lg text-ink/70">Gratuit, sans publicité, et sans compte à créer.</p>
           <a href={APK_URL} className="btn-brand mt-8"><Download size={18} /> Télécharger Laoka</a>
           <p className="mt-4 text-sm text-ink/50">Android 7+ · {APP.size}</p>
+          <div data-dock className="mt-10 hidden aspect-square w-44 md:block" />
         </div>
 
         <div className="relative transition duration-300 md:-rotate-[1.2deg] md:hover:rotate-0">

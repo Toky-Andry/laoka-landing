@@ -10,8 +10,13 @@ const faqs = [
 export default function Faq() {
   return (
     <section id="faq" className="container-x max-w-3xl py-20 md:py-28">
-      <p className="eyebrow">Questions</p>
-      <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">Bon à savoir</h2>
+      <div className="flex items-end justify-between gap-6">
+        <div>
+          <p className="eyebrow">Questions</p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">Bon à savoir</h2>
+        </div>
+        <div data-dock className="hidden aspect-square w-36 md:block" />
+      </div>
       <div className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
         {faqs.map(([q, a]) => (
           <details key={q} className="group py-5">
