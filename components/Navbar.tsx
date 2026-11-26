@@ -40,6 +40,9 @@ export default function Navbar() {
           ))}
         </nav>
 
+        {/* Mobile : l’assiette vient se poser ici, au centre de la barre */}
+        <div data-nav-dock className="col-start-2 h-12 w-12 md:hidden" />
+
         <div className="col-start-3 flex items-center justify-end gap-2">
           <a
             href={APK_URL}
