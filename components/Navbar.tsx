@@ -29,7 +29,11 @@ export default function Navbar() {
     >
       {/* 3 colonnes : logo à gauche, liens exactement au centre, bouton calé à droite */}
       <div className="container-x grid h-16 grid-cols-[1fr_auto_1fr] items-center">
-        <div className="col-start-1 flex justify-start"><Logo /></div>
+        <div className="col-start-1 flex items-center justify-start gap-3">
+          <Logo />
+          {/* Mobile : l’assiette vient se poser ici, à côté du logo */}
+          <div data-nav-dock className="h-11 w-11 shrink-0 md:hidden" />
+        </div>
 
         <nav className="col-start-2 hidden items-center gap-9 md:flex">
           {links.map(([label, href]) => (
@@ -39,9 +43,6 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
-
-        {/* Mobile : l’assiette vient se poser ici, au centre de la barre */}
-        <div data-nav-dock className="col-start-2 h-12 w-12 md:hidden" />
 
         <div className="col-start-3 flex items-center justify-end gap-2">
           <a
